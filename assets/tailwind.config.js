@@ -8,8 +8,8 @@ const path = require("path")
 module.exports = {
   content: [
     "./js/**/*.js",
-    "../lib/pheonix_blueprint_web.ex",
-    "../lib/pheonix_blueprint_web/**/*.*ex"
+    "../lib/phoenix_blueprint_web.ex",
+    "../lib/phoenix_blueprint_web/**/*.*ex"
   ],
   theme: {
     extend: {

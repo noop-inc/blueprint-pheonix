@@ -1,4 +1,4 @@
-defmodule PheonixBlueprint.DataCase do
+defmodule PhoenixBlueprint.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule PheonixBlueprint.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use PheonixBlueprint.DataCase, async: true`, although
+  by setting `use PhoenixBlueprint.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,17 +18,17 @@ defmodule PheonixBlueprint.DataCase do
 
   using do
     quote do
-      alias PheonixBlueprint.Repo
+      alias PhoenixBlueprint.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import PheonixBlueprint.DataCase
+      import PhoenixBlueprint.DataCase
     end
   end
 
   setup tags do
-    PheonixBlueprint.DataCase.setup_sandbox(tags)
+    PhoenixBlueprint.DataCase.setup_sandbox(tags)
     :ok
   end
 
@@ -36,7 +36,7 @@ defmodule PheonixBlueprint.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(PheonixBlueprint.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(PhoenixBlueprint.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
   end
 

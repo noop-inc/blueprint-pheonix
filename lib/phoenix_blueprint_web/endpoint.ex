@@ -1,13 +1,13 @@
-defmodule PheonixBlueprintWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :pheonix_blueprint
+defmodule PhoenixBlueprintWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :phoenix_blueprint
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_pheonix_blueprint_key",
-    signing_salt: "ZTk8Y2Vk",
+    key: "_phoenix_blueprint_key",
+    signing_salt: "zLiWc72L",
     same_site: "Lax"
   ]
 
@@ -19,9 +19,9 @@ defmodule PheonixBlueprintWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :pheonix_blueprint,
+    from: :phoenix_blueprint,
     gzip: false,
-    only: PheonixBlueprintWeb.static_paths()
+    only: PhoenixBlueprintWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -29,7 +29,7 @@ defmodule PheonixBlueprintWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :pheonix_blueprint
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :phoenix_blueprint
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -47,5 +47,5 @@ defmodule PheonixBlueprintWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug PheonixBlueprintWeb.Router
+  plug PhoenixBlueprintWeb.Router
 end

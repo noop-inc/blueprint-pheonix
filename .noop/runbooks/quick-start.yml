@@ -1,6 +1,6 @@
 name: Quickstart Setup
 
-description: Demo full stack setup of a Pheonix app with internet endpoint
+description: Demo full stack setup of a Phoenix app with internet endpoint
 
 workflow:
   inputs:

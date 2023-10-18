@@ -30,7 +30,7 @@ components:
         - copy: rel
           destination: ./rel
         - run: MIX_ENV=prod mix release
-        - run: mv /app/_build/prod/rel/pheonix_blueprint ./output
+        - run: mv /app/_build/prod/rel/phoenix_blueprint ./output
     runtime:
       command: /app/output/bin/server
       resources:

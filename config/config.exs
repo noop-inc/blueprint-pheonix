@@ -7,20 +7,20 @@
 # General application configuration
 import Config
 
-config :pheonix_blueprint,
-  ecto_repos: [PheonixBlueprint.Repo],
+config :phoenix_blueprint,
+  ecto_repos: [PhoenixBlueprint.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :pheonix_blueprint, PheonixBlueprintWeb.Endpoint,
+config :phoenix_blueprint, PhoenixBlueprintWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: PheonixBlueprintWeb.ErrorHTML, json: PheonixBlueprintWeb.ErrorJSON],
+    formats: [html: PhoenixBlueprintWeb.ErrorHTML, json: PhoenixBlueprintWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: PheonixBlueprint.PubSub,
-  live_view: [signing_salt: "Dmd4ipV8"]
+  pubsub_server: PhoenixBlueprint.PubSub,
+  live_view: [signing_salt: "llFnOF6L"]
 
 # Configures the mailer
 #
@@ -29,7 +29,7 @@ config :pheonix_blueprint, PheonixBlueprintWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :pheonix_blueprint, PheonixBlueprint.Mailer, adapter: Swoosh.Adapters.Local
+config :phoenix_blueprint, PhoenixBlueprint.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

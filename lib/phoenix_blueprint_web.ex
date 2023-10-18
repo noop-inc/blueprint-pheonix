@@ -1,12 +1,12 @@
-defmodule PheonixBlueprintWeb do
+defmodule PhoenixBlueprintWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use PheonixBlueprintWeb, :controller
-      use PheonixBlueprintWeb, :html
+      use PhoenixBlueprintWeb, :controller
+      use PhoenixBlueprintWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule PheonixBlueprintWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: PheonixBlueprintWeb.Layouts]
+        layouts: [html: PhoenixBlueprintWeb.Layouts]
 
       import Plug.Conn
-      import PheonixBlueprintWeb.Gettext
+      import PhoenixBlueprintWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule PheonixBlueprintWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {PheonixBlueprintWeb.Layouts, :app}
+        layout: {PhoenixBlueprintWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule PheonixBlueprintWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import PheonixBlueprintWeb.CoreComponents
-      import PheonixBlueprintWeb.Gettext
+      import PhoenixBlueprintWeb.CoreComponents
+      import PhoenixBlueprintWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule PheonixBlueprintWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: PheonixBlueprintWeb.Endpoint,
-        router: PheonixBlueprintWeb.Router,
-        statics: PheonixBlueprintWeb.static_paths()
+        endpoint: PhoenixBlueprintWeb.Endpoint,
+        router: PhoenixBlueprintWeb.Router,
+        statics: PhoenixBlueprintWeb.static_paths()
     end
   end
 

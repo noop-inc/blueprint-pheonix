@@ -1,1 +1,1 @@
-call "%~dp0\pheonix_blueprint" eval PheonixBlueprint.Release.migrate
+call "%~dp0\phoenix_blueprint" eval PhoenixBlueprint.Release.migrate

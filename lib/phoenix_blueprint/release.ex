@@ -1,9 +1,9 @@
-defmodule PheonixBlueprint.Release do
+defmodule PhoenixBlueprint.Release do
   @moduledoc """
   Used for executing DB release tasks when run in production without Mix
   installed.
   """
-  @app :pheonix_blueprint
+  @app :phoenix_blueprint
 
   def migrate do
     load_app()

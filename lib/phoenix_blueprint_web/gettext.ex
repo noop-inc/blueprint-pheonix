@@ -1,11 +1,11 @@
-defmodule PheonixBlueprintWeb.Gettext do
+defmodule PhoenixBlueprintWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import PheonixBlueprintWeb.Gettext
+      import PhoenixBlueprintWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule PheonixBlueprintWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :pheonix_blueprint
+  use Gettext, otp_app: :phoenix_blueprint
 end

@@ -1,5 +1,5 @@
-defmodule PheonixBlueprintWeb.PageController do
-  use PheonixBlueprintWeb, :controller
+defmodule PhoenixBlueprintWeb.PageController do
+  use PhoenixBlueprintWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,
