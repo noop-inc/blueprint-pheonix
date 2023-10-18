@@ -1,0 +1,47 @@
+---
+components:
+  - name: WebApp
+    type: service
+    image: elixir:latest
+    port: 4000
+    build:
+      steps:
+        - directory: /app
+        - run: apt-get update
+        - run: apt-get install -y postgresql-client
+        - run: mix local.rebar --force
+        - copy: [mix.exs, mix.lock]
+          destination: ./
+        - run: mix deps.get --only prod
+        - run: mkdir config
+        - copy: [config/config.exs, config/prod.exs]
+          destination: ./config/
+        - run: MIX_ENV=prod mix deps.compile
+        - copy: priv
+          destination: ./priv
+        - copy: assets
+          destination: ./assets
+        - run: MIX_ENV=prod mix assets.deploy
+        - copy: lib
+          destination: ./lib
+        - run: MIX_ENV=prod mix compile
+        - copy: config/runtime.exs
+          destination: ./config/
+        - copy: rel
+          destination: ./rel
+        - run: MIX_ENV=prod mix release
+        - run: mv /app/_build/prod/rel/elixir_blueprint ./output
+    runtime:
+      command: /app/output/bin/server
+      resources:
+        - PgDatabase
+      variables:
+        DATABASE_URL:
+          $resources: PgDatabase.url
+routes:
+  - target:
+      component: WebApp
+
+resources:
+  - name: PgDatabase
+    type: postgresql
