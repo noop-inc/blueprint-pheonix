@@ -21,9 +21,9 @@ components:
           destination: ./priv
         - copy: assets
           destination: ./assets
-        - run: MIX_ENV=prod mix assets.deploy
         - copy: lib
           destination: ./lib
+        - run: MIX_ENV=prod mix assets.deploy
         - run: MIX_ENV=prod mix compile
         - copy: config/runtime.exs
           destination: ./config/
