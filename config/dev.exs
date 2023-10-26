@@ -5,7 +5,7 @@ config :phoenix_blueprint, PhoenixBlueprint.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "phoenix_blueprint_dev",
+  database: "postgres",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
