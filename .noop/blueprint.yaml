@@ -2,13 +2,14 @@
 components:
   - name: WebApp
     type: service
-    image: elixir:latest
+    image: hexpm/elixir:1.14.0-erlang-24.3.4-debian-bullseye-20210902-slim
     port: 4000
     build:
       steps:
         - directory: /app
         - run: apt-get update
         - run: apt-get install -y postgresql-client
+        - run: mix local.hex --force
         - run: mix local.rebar --force
         - copy: [mix.exs, mix.lock]
           destination: ./
@@ -30,9 +31,12 @@ components:
         - copy: rel
           destination: ./rel
         - run: MIX_ENV=prod mix release
-        - run: mv /app/_build/prod/rel/phoenix_blueprint ./output
+        - image: debian:bullseye-20210902-slim
+        - copy: /app/_build/prod/rel/phoenix_blueprint
+          destination: ./
+          from: main
     runtime:
-      command: /app/output/bin/server
+      command: /bin/server
       resources:
         - PgDatabase
       variables:
@@ -41,7 +45,6 @@ components:
 routes:
   - target:
       component: WebApp
-
 resources:
   - name: PgDatabase
     type: postgresql
